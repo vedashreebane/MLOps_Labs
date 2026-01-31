@@ -4,18 +4,18 @@ The purpose of this lab was to practice basic docker operations like creation of
 
 ## Build Docker Image 
 Run inside, MLOps_Labs/Lab1_docker
-'''
+```
 docker build -t mlops_lab1:v1 . 
-'''
+```
 
 ## Run the Container 
-'''
+```
 docker run mlops_lab1:v1
-'''
+```
 
 ## Export the Image 
-'''
+```
 docker save mlops_lab1:v1 ? mlops_lab1.tar 
-
+```
 
 
