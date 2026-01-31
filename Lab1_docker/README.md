@@ -1,6 +1,6 @@
 # Lab 1 - Dockerised Model Training 
 In this lab, a RandomForest Model is trained on the load_diabetes dataset, makes predictions and deployed using Docker containerization. 
-The purpose of this lab was to practice basic docker operations like creation of image, building a container, exporting the image and running it on a local machine. 
+The purpose of this lab was to practice basic Docker operations like creation of image, building a container, exporting the image and running it on a local machine. 
 
 ## Build Docker Image 
 Run inside, MLOps_Labs/Lab1_docker
