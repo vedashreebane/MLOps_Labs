@@ -96,5 +96,5 @@ http://127.0.0.1:8000
 | POST | `/predict` | Predict diabetes progression based on input features |
 
 ## Output Screenshot
-![API Testing Output](FastAPI-output.png)
+FastAPI-output.png is the output. 
 
