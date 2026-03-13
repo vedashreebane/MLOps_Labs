@@ -1,0 +1,5 @@
+outs:
+- md5: b2e3171b72a8d92e8abcdcf9e310cc59
+  size: 190305
+  hash: md5
+  path: bmw_global_sales_2018_2025.csv

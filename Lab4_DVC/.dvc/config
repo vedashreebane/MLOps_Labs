@@ -1,0 +1,6 @@
+[core]
+    no_scm = True
+    remote = lab4
+['remote "lab4"']
+    url = gs://mlops_lab4
+    credentialpath = ../gcp-key.json
