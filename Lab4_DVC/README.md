@@ -102,11 +102,3 @@ dvc checkout
 Git holds the history of pointer hashes → DVC fetches the matching data file from GCS.
 
 ---
-
----
-
-## 📚 Resources
-
-- [DVC Official Documentation](https://dvc.org/doc)
-- [DVC with Google Cloud Storage](https://dvc.org/doc/user-guide/data-management/remote-storage/google-cloud-storage)
-- [Course Repository](https://github.com/raminmohammadi/MLOps)
