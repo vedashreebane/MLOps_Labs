@@ -1,0 +1,13 @@
+# GCP credentials - never commit this!
+*.json
+
+# Terraform state files - contain sensitive infrastructure data
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.tfstate.lock.info
+
+# Terraform working directory - contains downloaded plugins (huge files)
+.terraform/
+
+# Terraform lock file - optional but recommended to keep actually
+# .terraform.lock.hcl

@@ -1,0 +1,146 @@
+# google_compute_instance.vm_instance:
+resource "google_compute_instance" "vm_instance" {
+    allow_stopping_for_update  = true
+    can_ip_forward             = false
+    cpu_platform               = "Intel Broadwell"
+    creation_timestamp         = "2026-03-15T10:11:03.237-07:00"
+    current_status             = "RUNNING"
+    deletion_protection        = false
+    description                = null
+    effective_labels           = {
+        "environment"                = "development"
+        "goog-terraform-provisioned" = "true"
+        "owner"                      = "team-terraform"
+    }
+    enable_display             = false
+    hostname                   = null
+    id                         = "projects/mlops-project-488302/zones/us-central1-a/instances/terraform-vm"
+    instance_id                = "2890446429876868809"
+    key_revocation_action_type = null
+    label_fingerprint          = "D6rKwDoZIqE="
+    labels                     = {
+        "environment" = "development"
+        "owner"       = "team-terraform"
+    }
+    machine_type               = "e2-micro"
+    metadata                   = {}
+    metadata_fingerprint       = "AyP5vvqcsAE="
+    min_cpu_platform           = null
+    name                       = "terraform-vm"
+    project                    = "mlops-project-488302"
+    resource_policies          = []
+    self_link                  = "https://www.googleapis.com/compute/v1/projects/mlops-project-488302/zones/us-central1-a/instances/terraform-vm"
+    tags                       = []
+    tags_fingerprint           = "42WmSpB8rSM="
+    terraform_labels           = {
+        "environment"                = "development"
+        "goog-terraform-provisioned" = "true"
+        "owner"                      = "team-terraform"
+    }
+    zone                       = "us-central1-a"
+
+    boot_disk {
+        auto_delete                     = true
+        device_name                     = "persistent-disk-0"
+        disk_encryption_key_raw         = (sensitive value)
+        disk_encryption_key_rsa         = (sensitive value)
+        disk_encryption_key_sha256      = null
+        disk_encryption_service_account = null
+        force_attach                    = false
+        guest_os_features               = [
+            "UEFI_COMPATIBLE",
+            "VIRTIO_SCSI_MULTIQUEUE",
+            "GVNIC",
+        ]
+        interface                       = null
+        kms_key_self_link               = null
+        mode                            = "READ_WRITE"
+        source                          = "https://www.googleapis.com/compute/v1/projects/mlops-project-488302/zones/us-central1-a/disks/terraform-vm"        
+
+        initialize_params {
+            architecture                = "X86_64"
+            enable_confidential_compute = false
+            image                       = "https://www.googleapis.com/compute/v1/projects/debian-cloud/global/images/debian-11-bullseye-v20260310"
+            labels                      = {}
+            provisioned_iops            = 0
+            provisioned_throughput      = 0
+            resource_manager_tags       = {}
+            resource_policies           = []
+            size                        = 12
+            snapshot                    = null
+            storage_pool                = null
+            type                        = "pd-standard"
+        }
+    }
+
+    network_interface {
+        igmp_query                  = null
+        internal_ipv6_prefix_length = 0
+        ipv6_access_type            = null
+        ipv6_address                = null
+        name                        = "nic0"
+        network                     = "https://www.googleapis.com/compute/v1/projects/mlops-project-488302/global/networks/default"
+        network_attachment          = null
+        network_ip                  = "10.128.0.3"
+        nic_type                    = null
+        parent_nic_name             = null
+        queue_count                 = 0
+        stack_type                  = "IPV4_ONLY"
+        subnetwork                  = "https://www.googleapis.com/compute/v1/projects/mlops-project-488302/regions/us-central1/subnetworks/default"
+        subnetwork_project          = "mlops-project-488302"
+        vlan                        = 0
+    }
+
+    scheduling {
+        automatic_restart           = true
+        availability_domain         = 0
+        instance_termination_action = null
+        min_node_cpus               = 0
+        on_host_maintenance         = "MIGRATE"
+        preemptible                 = false
+        provisioning_model          = "STANDARD"
+        termination_time            = null
+    }
+
+    shielded_instance_config {
+        enable_integrity_monitoring = true
+        enable_secure_boot          = false
+        enable_vtpm                 = true
+    }
+}
+
+# google_storage_bucket.terraform-lab-bucket:
+resource "google_storage_bucket" "terraform-lab-bucket" {
+    default_event_based_hold    = false
+    effective_labels            = {
+        "goog-terraform-provisioned" = "true"
+    }
+    enable_object_retention     = false
+    force_destroy               = true
+    id                          = "terraform-lab-bucket-unique-12345"
+    labels                      = {}
+    location                    = "US-CENTRAL1"
+    name                        = "terraform-lab-bucket-unique-12345"
+    project                     = "mlops-project-488302"
+    project_number              = 990284633037
+    public_access_prevention    = "inherited"
+    requester_pays              = false
+    self_link                   = "https://www.googleapis.com/storage/v1/b/terraform-lab-bucket-unique-12345"
+    storage_class               = "STANDARD"
+    terraform_labels            = {
+        "goog-terraform-provisioned" = "true"
+    }
+    time_created                = "2026-03-15T17:13:29.013Z"
+    uniform_bucket_level_access = false
+    updated                     = "2026-03-15T17:13:29.013Z"
+    url                         = "gs://terraform-lab-bucket-unique-12345"
+
+    hierarchical_namespace {
+        enabled = false
+    }
+
+    soft_delete_policy {
+        effective_time             = "2026-03-15T17:13:29.013Z"
+        retention_duration_seconds = 604800
+    }
+}
