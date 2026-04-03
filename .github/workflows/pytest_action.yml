@@ -1,0 +1,40 @@
+name: Testing with Pytest
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: python:3.8-slim
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Tests and Generate XML Report
+        continue-on-error: false
+        run: pytest test/ --junitxml=pytest-report.xml
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: pytest-report.xml
+
+      - name: Notify on Success
+        if: success()
+        run: echo "All pytest tests passed successfully."
+
+      - name: Notify on Failure
+        if: failure()
+        run: echo "Some pytest tests failed. Check the report."
