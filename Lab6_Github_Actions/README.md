@@ -111,3 +111,5 @@ Both workflows run on a `python:3.8-slim` Docker container, keeping the environm
 ## Notes
 - Tests must pass locally before pushing
 - `.venv/` and `__pycache__/` are excluded via `.gitignore`
+- `pytest-report.xml` — downloaded artifact from the GitHub Actions run, confirms pytest executed successfully
+- `Both pytest and unittest workflow success.png` — screenshot of both workflows passing in the Actions tab
