@@ -1,4 +1,4 @@
-# Lab 6 - GitHub Actions (IE-7374 MLOps)
+# Lab 6 - GitHub Actions (Lab 1)
 
 This lab demonstrates CI/CD using GitHub Actions by building a Python calculator, writing tests, and automating test execution on every push.
 
@@ -73,7 +73,7 @@ Both workflows run on a `python:3.8-slim` Docker container, keeping the environm
 
 ---
 
-## Going Beyond the Requirements
+## Extra work added
 
 - Added a 5th function `divide()` with proper error handling for division by zero
 - Wrote 30+ edge case tests covering floats, negatives, large numbers, and error conditions
