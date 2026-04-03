@@ -4,7 +4,7 @@ import os
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
 
-from src.calculator import add, subtract, multiply, combined, divide
+from calculator import add, subtract, multiply, combined, divide
 
 
 # Addition tests
