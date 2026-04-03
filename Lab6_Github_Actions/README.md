@@ -10,8 +10,8 @@ This lab demonstrates CI/CD using GitHub Actions by building a Python calculator
 Lab6_Github_Actions/
 ├── .github/
 │   └── workflows/
-│       ├── pytest_action.yml       # Runs pytest automatically on push
-│       └── unittest_action.yml     # Runs unittest automatically on push
+│       ├── pytest_action.yml       # For structure/documentation consistency
+│       └── unittest_action.yml     # For structure/documentation consistency
 ├── data/
 │   └── __init__.py
 ├── src/
@@ -23,6 +23,24 @@ Lab6_Github_Actions/
 │   └── test_unittest.py            # Tests using unittest
 ├── .gitignore
 └── requirements.txt
+```
+
+---
+
+## Setup
+
+**1. Create and activate a virtual environment**
+```bash
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# Mac/Linux
+source .venv/bin/activate
+```
+
+**2. Install dependencies**
+```bash
+pip install -r requirements.txt
 ```
 
 ---
@@ -41,22 +59,15 @@ Defined in `src/calculator.py`:
 
 ---
 
-## Testing
+## Run Tests Locally
 
-Tests are written using both **pytest** and **unittest** and cover:
-- Positive numbers
-- Zeros and one-zero inputs
-- Negative numbers and mixed signs
-- Floating point values
-- Large numbers
-- Division by zero (expects `ValueError`)
-
-To run locally:
+### Pytest
 ```bash
-# pytest
 pytest test/
+```
 
-# unittest
+### Unittest
+```bash
 python -m unittest test.test_unittest
 ```
 
@@ -64,19 +75,39 @@ python -m unittest test.test_unittest
 
 ## GitHub Actions
 
-Two workflows trigger automatically on every push or pull request to `main`:
+Two workflows are configured:
+- `Testing with Pytest`
+- `Python Unittests`
 
-- **`pytest_action.yml`** — runs the pytest suite and uploads an XML test report as an artifact
-- **`unittest_action.yml`** — runs the unittest suite and reports pass/fail
+Actions are triggered on both `push` and `pull_request` events.
+
+Because this project lives inside a larger parent repo, workflow files are stored at the parent repo root:
+- `.github/workflows/pytest_action.yml`
+- `.github/workflows/unittest_action.yml`
+
+To maintain the Lab6 repository structure, matching workflow YAML files are also kept inside:
+- `Lab6_Github_Actions/.github/workflows/pytest_action.yml`
+- `Lab6_Github_Actions/.github/workflows/unittest_action.yml`
+
+**Execution note:**
+- Parent repo `.github/workflows/` files are used by GitHub Actions to run CI.
+- `Lab6_Github_Actions/.github/workflows/` is kept for structure and documentation consistency.
+- These workflows are configured to run only for Lab6-related changes.
 
 Both workflows run on a `python:3.8-slim` Docker container, keeping the environment lightweight and consistent.
 
 ---
 
-## Extra work added
+## Additions 
 
 - Added a 5th function `divide()` with proper error handling for division by zero
 - Wrote 30+ edge case tests covering floats, negatives, large numbers, and error conditions
 - Used `python:3.8-slim` Docker image instead of the default Ubuntu runner for a leaner CI environment
 - Workflows trigger on both `push` and `pull_request` events (standard industry practice)
 - Used descriptive function names (`add`, `subtract`, etc.) instead of `fun1`, `fun2`
+
+---
+
+## Notes
+- Tests must pass locally before pushing
+- `.venv/` and `__pycache__/` are excluded via `.gitignore`
